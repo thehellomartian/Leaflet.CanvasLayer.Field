@@ -8,11 +8,145 @@
     <link rel="stylesheet" href="examples.css" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+    
+     <style>
+            p {
+                font-family: 'Open Sans';
+                margin: 0;
+                font-size: 13px;
+            }
+   
+            #instructions  {
+              
+        position: absolute;
+        margin-top: 120px;
+        margin-left: 10px;
+        width: 220px;
+        top: 0;
+        bottom: 22%;
+        padding: 20px;
+        background-color: #fff;
+        overflow-y: scroll;
+        font-family: sans-serif;
+        border-radius: 3px;
+      }
+            #climate,#context {
+              margin-top: 10px;
+              top 0;
+              
+              right:0;
+              width: 160px;
+              
+              position: static;
+              background-color: #fff;
+              overflow-y: scroll;
+              font-family: sans-serif;
+              border-radius:3px;
+
+            }
+      #shopBox {
+        margin-top: 10px;
+              top 0;
+              margin-right: 10px;
+              right:0;
+              width: 180px;
+              padding: 10px;
+              height: 290px; 
+              position: absolute;
+              background-color: #fff;
+              
+              font-family: sans-serif;
+              border-radius:3px;
+      }
+      #legend {
+              margin-top:380px;
+              top: 0;
+              margin-right: 10px;
+              right:0;
+              width: 180px;
+              padding: 10px;
+              bottom:22%; 
+              position: absolute;
+              background-color: #fff;
+              overflow-y: scroll;
+              font-family: sans-serif;
+              border-radius:3px;
+      }
+      h1 {
+        margin-top: 20px;
+  position:static;
+  font-size: 24px;
+        text-align: center;
+      }
+      h2,
+h3 {
+  margin-top: 10px;
+  position:static;
+  font-size: 18px;
+}
+      .slider {width: 100%}  
+      #titleBox {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 260px;
+        top: 0;
+        height: 80px;
+        
+        background-color: #fff;
+        
+        font-family: sans-serif;
+        border-radius: 3px;
+        
+      }
+      .geocoder {
+    width: 180px;
+}
+      
+      .mycluster {
+			width: 40px;
+			height: 40px;
+			background-color: greenyellow;
+			text-align: center;
+			font-size: 24px;
+		}
+    </style>
 </head>
 
 <body>
-    <h1 class="title mapTitle">ScalarField GeoTIFF</h1>
+    <h1 class="title mapTitle">California Wildfire Predictive Modeling</h1>
     <div id="map"></div>
+    
+     <div id="instructions"><h2>Information: </h2></div>
+
+    <div id="shopBox">
+       <h2 font-size="8px" font-family = "sans-serif"> Climate Scenario: </h2>  
+      <select name="fruits" id="climate">
+        <option value="">--select--</option>
+        <option value="RCP1">RCP 1.9</option>
+        <option value="RCP2">RCP 2.6</option>
+       <option value="RCP3">RCP 3.4</option>
+        <option value="RCP4">RCP 4.5</option>
+        <option value="RCP5">RCP 6</option>
+        <option value="RCP6">RCP 7</option>
+        <option value="RCP7">RCP 8.5</option>
+      </select>
+       
+       <h2 font-size="8px" font-family = "sans-serif"> Threshold: </h2>
+      <div class="slidecontainer">
+  <input type="range" min="1" max="1000" value="300" class="slider" id="myRange">
+        <p>Threshold: <span id="demo"></span> m</p>
+</div>
+      
+      <h2 font-size="8px" font-family = "sans-serif"> Contextual Variables: </h2>  
+      <select name="fruits" id="context">
+        <option value="">--select--</option>
+        <option value="people">Census Tracts</option>
+        <option value="animals">Endangered Species</option>
+       <option value="plants">Endangered Plant Species</option>
+
+      </select>
+    </div>
 
     <!-- CDN -->
     <script src="//d3js.org/d3.v4.min.js"></script>
