@@ -148,7 +148,7 @@ h3 {
        <h2> Maximum Risk Level: </h2>
       <div class="slidecontainer">
   <input type="range" min="0" max="1" value="300" class="slider" id="myRange">
-        <p>Risk Leel: <span id="demo"></span> m</p>
+        <p>Risk Level: <span id="demo"></span> m</p>
 </div>
       
       <h2 font-size="8px" font-family = "sans-serif"> Contextual Variables: </h2>  
@@ -209,6 +209,124 @@ h3 {
                     }
                 });
                 map.fitBounds(layer.getBounds());
+		    
+		    document.getElementById("climate").addEventListener("change", changeClimateLayer);
+      
+      document.getElementById("context").addEventListener("change", changeContextLayer);
+      
+      var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+      
+      function changeClimateLayer(e) {
+        var RCPScenario = document.getElementById("climate").value;
+          switch (RCPScenario) {
+          case '': 
+            tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP1":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP2":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP3":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP4":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP5":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP6":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "RCP7":
+             tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          
+        }
+      
+      }
+      var markers = L.markerClusterGroup();
+markers.addLayer(L.marker(new L.LatLng(37.694972, -120.709173)));
+markers.addLayer(L.marker(new L.LatLng(37.684972, -120.709173)));
+markers.addLayer(L.marker(new L.LatLng(37.694972, -120.719173)));
+markers.addLayer(L.marker(new L.LatLng(37.674972, -120.709173)));
+markers.addLayer(L.marker(new L.LatLng(37.684972, -120.719173)));
+map.addLayer(markers);
+      
+      
+      
+      function changeContextLayer(e) {
+       var RCPScenario = document.getElementById("climate").value;
+          switch (RCPScenario) {
+          case '': 
+            tiffLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "people":
+             contextLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "animals":
+             contextLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+          case "plants":
+             contextLink = "https://geotiff.github.io/georaster-layer-for-leaflet-example/example_4326.tif";
+            break;
+         
+          
+        }
+        
+      }
+      
+      slider.addEventListener("change", function() {
+      output.innerHTML = slider.value;
+      });
+      function updatePlot() {
+        //plot RCP layer (maybe do in other thing?)
+        
+        //plot areas for contextual variables
+        
+        
+        //update contexts at risk based on rcp and threshold
+        
+        // get center points
+        
+        
+        //calculate populations at risk (use center)
+        
+        
+        
+        //plot centers with dependent symbology
+        //at risk 
+        plotPoints("yes",yesCoords);
+        //not at risk
+       // plotPoints("no",noCoords);
+        
+        //update legend
+        updateLegend();
+        //update Information Box
+        updateInfo();
+        
+      }
+      
+      function updateLegend() {
+        document.getElementById("legendContents").innerHTML = "<p> Weee</p>"
+      }
+      function updateInfo() {
+        
+      }
+      function plotPoints(atRiskStr,coords) {
+        var color = "grey";
+        if (atRiskStr=="yes") {
+          color = "red"
+        } else if (atRiskStr=="no") {
+          color = "green"
+        }
+        
+      }
+    
 
             });
     </script>
