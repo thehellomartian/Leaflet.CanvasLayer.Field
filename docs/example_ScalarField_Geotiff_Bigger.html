@@ -201,7 +201,7 @@ h3 {
                 layer.on('click', function (e) {
                     if (e.value !== null) {
                         let v = e.value.toFixed(2);
-                        let html = (`<span class="popupText">NDVI ${v}</span>`);
+                        let html = (`<span class="popupText">Risk: ${v}</span>`);
                         let popup = L.popup()
                             .setLatLng(e.latlng)
                             .setContent(html)
