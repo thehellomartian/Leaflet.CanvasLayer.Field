@@ -36,7 +36,7 @@
         /* NASA NDVI Index (2017-02) 0.1 deg (3600 x 1800): ~3.3MB with LZW (24.7MB uncompressed)
         https://neo.sci.gsfc.nasa.gov/view.php?datasetId=MOD13A2_M_NDVI
         */
-        d3.request("https://thehellomartian.github.io/webraster/ndvi_201702_LZW.tif").responseType('arraybuffer').get(
+        d3.request("https://ubc-geos472-spring2022.github.io/California-Wildfires--Final-Project/Wildfire_2050_RCP85.tif").responseType('arraybuffer').get(
             function (error, tiffData) {
                 let ndvi = L.ScalarField.fromGeoTIFF(tiffData.response);
 
