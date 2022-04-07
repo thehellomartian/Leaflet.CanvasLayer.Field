@@ -45,7 +45,8 @@
 
                 let layer = L.canvasLayer.scalarField(ndvi, {
                     color: chroma.scale(['lightyellow','orange', 'red']).domain(ndvi.range),
-                    inFilter: (v) => v !== 0
+                    inFilter: (v) => v !== 0,
+                     opacity: 0.65
                 }).addTo(map);
 
                 layer.on('click', function (e) {
