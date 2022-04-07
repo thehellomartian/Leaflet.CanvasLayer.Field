@@ -24,7 +24,10 @@
     <script src="dist/leaflet.canvaslayer.field.js"></script>
 
     <script>
-        let map = L.map('map');
+        let map = L.map('map', {
+                            								center: [37.694972, -120.709173],
+                            								zoom: 6 
+                          								});
 
         /* Dark basemap */
         let url = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png';
