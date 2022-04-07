@@ -59,6 +59,7 @@
               
               font-family: sans-serif;
               border-radius:3px;
+	      z-index: 999999
       }
       #legend {
               margin-top:380px;
@@ -122,7 +123,7 @@ h3 {
      <div id="instructions"><h2>Information: </h2></div>
 
     <div id="shopBox">
-       <h2 font-size="8px" font-family = "sans-serif"> Climate Scenario: </h2>  
+       <h2> Climate Scenario: </h2>  
       <select name="fruits" id="climate">
         <option value="">--select--</option>
         <option value="RCP1">RCP 1.9</option>
@@ -134,7 +135,7 @@ h3 {
         <option value="RCP7">RCP 8.5</option>
       </select>
        
-       <h2 font-size="8px" font-family = "sans-serif"> Threshold: </h2>
+       <h2> Threshold: </h2>
       <div class="slidecontainer">
   <input type="range" min="1" max="1000" value="300" class="slider" id="myRange">
         <p>Threshold: <span id="demo"></span> m</p>
